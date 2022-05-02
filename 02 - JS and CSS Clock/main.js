@@ -1,3 +1,32 @@
+// Select clock hands
+const secondHand = document.querySelector('.second-hand');
+const minHand = document.querySelector('.min-hand');
+const hourHand = document.querySelector('.hour-hand');
+
+function moveClockHands(){
+  const now = new Date(); // get current date
+
+  // Second Hand
+  const seconds = now.getSeconds(); // get seconds of current minute
+  const secondsDegrees = ((seconds / 60) * 360) + 90; // convert %seconds to % degrees, fix CSS 90deg rotation offset
+  secondHand.style.transform = `rotate(${secondsDegrees}deg)`; // position the second-hand every second
+
+  // Minute Hand
+  const mins = now.getMinutes(); // get minutes of current hour
+  const minsDegrees = ((mins / 60) * 360) + ((seconds/60)*6) + 90; // convert %mins to % degrees, allow hand to "creep", fix CSS 90deg rotation offset
+  minHand.style.transform = `rotate(${minsDegrees}deg)`; // position the min-hand every minute
+
+  // Hour Hand
+  const hours = now.getHours(); // get hours of current day
+  const hoursDegrees = ((hours / 12) * 360) + ((mins/60)*30) + 90; // convert %hours to % degrees, allow hand to "creep", fix CSS 90deg rotation offset
+  hourHand.style.transform = `rotate(${hoursDegrees}deg)`; // position the hour-hand every hour
+}
+
+// Set function call interval
+setInterval(moveClockHands, 1000);
+
+
+/* OLD CODE
 const secondHand = document.querySelector('.second-hand'); //select second-hand element
 const minHand = document.querySelector('.min-hand');
 const hourHand = document.querySelector('.hour-hand');
@@ -30,3 +59,4 @@ function setDate(){
 }
 
 setInterval(setDate, 1000);
+*/
