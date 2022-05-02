@@ -7,19 +7,41 @@ function moveClockHands(){
   const now = new Date(); // get current date
 
   // Second Hand
-  const seconds = now.getSeconds(); // get seconds of current minute
-  const secondsDegrees = ((seconds / 60) * 360) + 90; // convert %seconds to % degrees, fix CSS 90deg rotation offset
+  let seconds = now.getSeconds(); // get seconds of current minute
+  let secondsDegrees = ((seconds / 60) * 360) + 90; // convert %seconds to % degrees, fix CSS 90deg rotation offset
   secondHand.style.transform = `rotate(${secondsDegrees}deg)`; // position the second-hand every second
 
   // Minute Hand
-  const mins = now.getMinutes(); // get minutes of current hour
-  const minsDegrees = ((mins / 60) * 360) + ((seconds/60)*6) + 90; // convert %mins to % degrees, allow hand to "creep", fix CSS 90deg rotation offset
+  let mins = now.getMinutes(); // get minutes of current hour
+  let minsDegrees = ((mins / 60) * 360) + ((seconds/60)*6) + 90; // convert %mins to % degrees, allow hand to "creep", fix CSS 90deg rotation offset
   minHand.style.transform = `rotate(${minsDegrees}deg)`; // position the min-hand every minute
 
   // Hour Hand
-  const hours = now.getHours(); // get hours of current day
-  const hoursDegrees = ((hours / 12) * 360) + ((mins/60)*30) + 90; // convert %hours to % degrees, allow hand to "creep", fix CSS 90deg rotation offset
+  let hours = now.getHours; // get hours of current day
+  let hoursDegrees = ((hours / 12) * 360) + ((mins/60)*30) + 90; // convert %hours to % degrees, allow hand to "creep", fix CSS 90deg rotation offset
   hourHand.style.transform = `rotate(${hoursDegrees}deg)`; // position the hour-hand every hour
+
+  // Remove "stutter" when hand reaches 12 'o clock position
+  if(seconds === 0){
+    secondsDegrees = 90;
+    secondHand.classList.add('no-transition');
+    secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+    setTimeout( function () {secondHand.classList.remove('no-transition');},1000)
+  }
+
+  if(mins === 0){
+    minsDegrees = 90;
+    minHand.classList.add('no-transition');
+    minHand.style.transform = `rotate(${minsDegrees}deg)`;
+    setTimeout( function () {minHand.classList.remove('no-transition');},1000)
+  }
+
+  if(hours === 12){
+    hoursDegrees = 90;
+    hourHand.classList.add('no-transition');
+    hourHand.style.transform = `rotate(${hoursDegrees}deg)`;
+    setTimeout( function () {hourHand.classList.remove('no-transition');},1000)
+  }
 }
 
 // Set function call interval
