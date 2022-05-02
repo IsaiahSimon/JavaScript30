@@ -1,5 +1,5 @@
 html {
-  background: #018DED url(https://unsplash.it/1500/1000?image=881&blur=5);
+  background: #018DED url(./images/cristian-palmer-XexawgzYOBc-unsplash.jpeg);
   background-size: cover;
   font-family: 'helvetica neue';
   text-align: center;
@@ -47,4 +47,8 @@ body {
   transform: rotate(90deg);
   transition: all 0.05s;
   transition-timing-function: cubic-bezier(0.06, 2.89, 0.58, 1);
+}
+
+.no-transition {
+  transition: none !important;
 }
