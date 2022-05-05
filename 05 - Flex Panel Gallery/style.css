@@ -51,11 +51,27 @@ body {
   flex-direction: column;
 }
 
-.panel1 { background-image:url(https://source.unsplash.com/gYl-UtwNg_I/1500x1500); }
-.panel2 { background-image:url(https://source.unsplash.com/rFKUFzjPYiQ/1500x1500); }
-.panel3 { background-image:url(https://images.unsplash.com/photo-1465188162913-8fb5709d6d57?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&w=1500&h=1500&fit=crop&s=967e8a713a4e395260793fc8c802901d); }
-.panel4 { background-image:url(https://source.unsplash.com/ITjiVXcwVng/1500x1500); }
-.panel5 { background-image:url(https://source.unsplash.com/3MNzGlQM7qs/1500x1500); }
+
+.panel1 {
+  background-image:url(./images/benjamin-davies-mqN-EV9rNlY-unsplash.jpeg);
+  filter: grayscale(100%);
+}
+.panel2 {
+  background-image:url(./images/didin-emelu-8--kuxbxuKU-unsplash.jpeg);
+  filter: grayscale(100%);
+}
+.panel3 {
+  background-image:url(./images/fabio-comparelli-uq2E2V4LhCY-unsplash.jpeg);
+  filter: grayscale(100%);
+}
+.panel4 {
+  background-image:url(./images/linus-sandvide-bhSNKT5aaMc-unsplash.jpeg);
+  filter: grayscale(100%);
+}
+.panel5 {
+  background-image:url(./images/matthew-sleeper-Spdu7YT1O00-unsplash.jpeg);
+  filter: grayscale(100%);
+}
 
 /* Flex Children */
 .panel > * {
@@ -104,4 +120,8 @@ body {
   /* When panel has a class of .open, it will take 5x the amt of extra room*/
   flex: 5;
   font-size: 40px;
+}
+
+.color-full {
+  filter: grayscale(0%);
 }

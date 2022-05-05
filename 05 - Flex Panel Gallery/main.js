@@ -23,6 +23,7 @@ function toggleActive(e){
   // note: safari says 'flex', which others say 'flex-grow', so .includes() is used instead of e.propertyName === 'flex-grow'
   if(e.propertyName.includes('flex')){
     this.classList.toggle('open-active');
+    this.classList.toggle('color-full');
   }
 }
 
