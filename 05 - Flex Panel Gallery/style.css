@@ -17,6 +17,8 @@ body {
 .panels {
   min-height: 100vh;
   overflow: hidden;
+  /* make into a flex container */
+  display: flex;
 }
 
 .panel {
@@ -34,6 +36,19 @@ body {
   font-size: 20px;
   background-size: cover;
   background-position: center;
+
+  /* distribute space among all panels */
+  flex: 1;
+
+  /* center  flex-items horizontally and vertically*/
+  justify-content: center;
+  align-items: center;
+
+  /* Also make panel a flex container */
+  display: flex;
+
+  /* change direction to vertically stack inner flex-items*/
+  flex-direction: column;
 }
 
 .panel1 { background-image:url(https://source.unsplash.com/gYl-UtwNg_I/1500x1500); }
@@ -47,7 +62,32 @@ body {
   margin: 0;
   width: 100%;
   transition: transform 0.5s;
+
+  /* add a border to visualize */
+  /* border: 1px border red; */
+
+  /* distribute vertical space evenly into thirds */
+  flex: 1 0 auto;
+
+  /* Make this into a flex container too */
+  display: flex;
+
+  /* center elements within each third*/
+  justify-content: center;
+  align-items: center;
+
 }
+
+/* push top row of words up so they are offscreen */
+.panel > *:first-child {transform:translateY(-100%);}
+/* animates element onto screen when .open-active class is added to it */
+.panel.open-active > *:first-child {transform:translateY(0%);}
+
+/* push bottom row of words down so they are offscreen */
+.panel > *:last-child {transform:translateY(100%);}
+/* animates element onto screen when .open-active class is added to it */
+.panel.open-active > *:last-child {transform:translateY(0%);}
+
 
 .panel p {
   text-transform: uppercase;
@@ -61,5 +101,7 @@ body {
 }
 
 .panel.open {
+  /* When panel has a class of .open, it will take 5x the amt of extra room*/
+  flex: 5;
   font-size: 40px;
 }
