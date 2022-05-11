@@ -7,6 +7,9 @@ const toggle = document.querySelector('.toggle');
 const skipButtons = document.querySelectorAll('[data-skip]'); // select by attribute
 const ranges = document.querySelectorAll('.player__slider');
 
+// Challenge Feature: Add a working fullscreen button
+const fullscreen = document.querySelector('.fullscreen');
+
 /* Build out functions */
 
 // function togglePlay(){
@@ -24,7 +27,7 @@ function togglePlay() {
 
 function updateButton(){
   const icon = this.paused ? '►' : '❚ ❚';
-  toggle .textContent = icon;
+  toggle.textContent = icon;
   //console.log('update the button');
 }
 
@@ -57,6 +60,19 @@ function scrub(e){
 
 }
 
+// Challenge Feature: Add a working fullscreen button
+function toggleFullscreen(){
+  console.log('Fullscreen clicked!')
+
+  if (video.requestFullscreen) {
+    video.requestFullscreen();
+  } else if (video.webkitRequestFullscreen) { /* Safari */
+    video.webkitRequestFullscreen();
+  } else if (video.msRequestFullscreen) { /* IE11 */
+    video.msRequestFullscreen();
+  }
+}
+
 /* Hook up the event listeners */
 video.addEventListener('click', togglePlay);
 video.addEventListener('play', updateButton); // listen to the video for whenever it is paused (more dynamic than just listening for togglePlay)
@@ -77,3 +93,4 @@ progress.addEventListener('mousedown', () => mousedown = true);
 progress.addEventListener('mouseup', () => mousedown = false);
 
 // Challenge Feature: Add a working fullscreen button
+fullscreen.addEventListener('click', toggleFullscreen);
