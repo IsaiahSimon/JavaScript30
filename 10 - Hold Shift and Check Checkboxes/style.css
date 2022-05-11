@@ -1,13 +1,13 @@
 
     html {
       font-family: sans-serif;
-      background: #ffc600;
+      background: #2155CD;
     }
 
     .inbox {
       max-width: 400px;
       margin: 50px auto;
-      background: white;
+      background: #79DAE8;
       border-radius: 5px;
       box-shadow: 10px 10px 0 rgba(0,0,0,0.1);
     }
@@ -15,7 +15,7 @@
     .item {
       display: flex;
       align-items: center;
-      border-bottom: 1px solid #F1F1F1;
+      border-bottom: 1px solid #0AA1DD;
     }
 
     .item:last-child {
@@ -23,7 +23,7 @@
     }
 
     input:checked + p {
-      background: #F9F9F9;
+      background: #79DAE8;
       text-decoration: line-through;
     }
 
