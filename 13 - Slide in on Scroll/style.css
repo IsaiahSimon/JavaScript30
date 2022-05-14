@@ -1,6 +1,6 @@
 html {
   box-sizing: border-box;
-  background: #ffc600;
+  background: #d26969;
   font-family: 'helvetica neue';
   font-size: 20px;
   font-weight: 200;
@@ -21,9 +21,10 @@ h1 {
 .site-wrap {
   max-width: 700px;
   margin: 100px auto;
-  background: white;
+  background: rgb(237, 234, 234);
   padding: 40px;
   text-align: justify;
+  border-radius: 30px;
 }
 
 .align-left {
