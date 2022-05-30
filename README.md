@@ -1,2 +1,2 @@
 # JavaScript30
-Projects made during the JavaScript30 challenge
+Daily projects made during the JavaScript30 challenge.
